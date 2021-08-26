@@ -1,67 +1,26 @@
-#include <unistd.h>
-int	ft_isspace(char c)
+int	ft_atoi(const char *str)
 {
-	if (c == '\t')
-		return (1);
-	if (c == '\n')
-		return (1);
-	if (c == '\v')
-		return (1);
-	if (c == '\f')
-		return (1);
-	if (c == '\r')
-		return (1);
-	if (c == ' ')
-		return (1);
-	else
-		return (0);
-}
+	int	i;
+	int	n;
+	int	result;
 
-int	ft_sign(char *x)
-{
-	int	min;
-
-	min = 2;
-	while (*x == '+' || *x == '-')
+	i = 0;
+	n = 1;
+	result = 0;
+	while (str[i] <= 32)
+		i++;
+	if (str[i] == '-')
 	{
-		if (*x == '+')
-			x++;
-		else if (*x == '-')
-		{
-			min += 1;
-			x++;
-		}
+		n = -1;
+		i++;
 	}
-	return (min % 2);
-}
-
-int	ft_atoi(char *str)
-{
-	int	minus;
-	int	res;
-
-	res = 0;
-	minus = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (ft_sign(str))
-		minus *= -1;
-	while (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{		
-		res *= 10;
-		res += *str - '0';
-		str++;
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
 	}
-	return (res * minus);
+	return (result * n);
 }
-/*
-#include <stdio.h>
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		printf ("%d", ft_atoi(av[1]));
-	return (0);	
-}
-*/

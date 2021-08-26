@@ -28,23 +28,12 @@ char	*ft_strstr(char	*str, char *to_find)
 	}
 	return ("\0");
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 int    main(void)
 {
 
-/*
-    char    str[] = "there is a needle in this haystack";
-    char    to_find[] = "needle";
-    printf("%s\n", ft_strstr(str, to_find));
-    printf("%s\n", strstr(str, to_find));
-
-    char    str2[] = "there ain't no needle in this haystack";
-    char    to_find2[] = "stack";
-    printf("%s\n", ft_strstr(str2, to_find2));
-    printf("%s\n", strstr(str2, to_find2));
-*/
     char    str3[] = "TESTTthere is a needle in this haystack\0";
     char    to_find3[] = "";
     printf("%s\n", ft_strstr(str3, to_find3));
@@ -54,4 +43,4 @@ int    main(void)
 //	printf("%d\n", compare("were the same", "were the same"));
     return (0);
 }
-
+*/

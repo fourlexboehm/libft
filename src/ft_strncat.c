@@ -17,6 +17,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	dest[desti] = '\0';
 	return (dest);
 }
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -51,3 +52,4 @@ int	main(void)
 	printf("%s\n", ft_strncat(dest5, src5, 35));
 
 }
+*/
