@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 20:37:04 by aboehm            #+#    #+#             */
+/*   Updated: 2021/08/28 20:37:05 by aboehm           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /* A function that compares two strings and outputs true if they're identical
  * and false if they're different.
  */

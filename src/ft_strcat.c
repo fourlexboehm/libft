@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 20:36:26 by aboehm            #+#    #+#             */
+/*   Updated: 2021/08/28 20:36:27 by aboehm           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 char	*ft_strcat(char *dest, char *src)
 {
 	int	desti;
@@ -16,13 +28,3 @@ char	*ft_strcat(char *dest, char *src)
 	dest[desti] = '\0';
 	return (dest);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	src[] = "I'm the SOurce";
-	char	dest[80] = "Please Add to me";
-
-	printf("%s", ft_strcat(dest, src)); 
-}
-*/
