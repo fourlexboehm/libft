@@ -1,3 +1,5 @@
+#include "../include/libft.h"
+
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -7,7 +9,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	n = 1;
 	result = 0;
-	while (str[i] <= 32)
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-')
 	{

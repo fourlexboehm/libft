@@ -16,7 +16,7 @@ int	compare(char *X, char *Y)
 }
 /* Finds to_find in str and returns str from that point till it's end */
 
-char	*ft_strstr(char	*str, char *to_find)
+char	*ft_strstr(char *str, char *to_find)
 {
 	while (*str != '\0')
 	{

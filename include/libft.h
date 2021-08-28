@@ -1,7 +1,8 @@
 #ifndef	LIB_FT
-#define	LIB_FT
-
-int		ft_atoi(char *str);
+ #define	LIB_FT
+ #include <string.h>
+int		ft_isspace(char c);
+int		ft_atoi(const char *str);
 int		ft_strcat(char *dest, char *src);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strcpy(char *dest, char *src);

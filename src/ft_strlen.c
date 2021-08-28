@@ -1,4 +1,3 @@
-#include <string.h>
 int	ft_strlen(char *str)
 {
 	int	i;
