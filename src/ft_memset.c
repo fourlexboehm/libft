@@ -6,12 +6,12 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 17:38:54 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 18:01:02 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/07 13:09:59 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/libft.h"
 
-void	*memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	char	*pointer;
 

@@ -1,31 +1,25 @@
-SHELL 	= /bin/sh
 CC		= gcc
-FLAGS	= -std=gnu99 
 CFLAGS	= -Werror -Wall -Wextra -c -g
 
-TARGET  = libft.a
+NAME  = libft.a
 SOURCES = $(shell echo src/*.c)
 HEADERS = $(shell echo include/*.h)
 OBJECTS = $(SOURCES:.c=.o)
 
-PREFIX = $(DESTDIR)/usr/local
-BINDIR = $(PREFIX)/bin
+all: $(NAME)
 
-all: $(TARGET)
-
-$(TARGET): $(OBJECTS)
-	ar rcs $(TARGET) $(OBJECTS)
-	ranlib $(TARGET)
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECT): $(SRC)
-	$(CC) $(FLAGS) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(HEADERS)
+	$(CC) $(FLAGS) $(CFLAGS) -o $(NAME) $(OBJECTS) $(HEADERS)
 
 clean:
 	rm -rf src/*.o
 
 fclean: clean
-		@rm -rf $(TARGET)
-		@echo "[INFO] Library [$(TARGET) removed!"
+		@rm -rf $(NAME)
+		@echo "[INFO] Library [$(NAME) removed!"
 
 
 #Re-make everything.

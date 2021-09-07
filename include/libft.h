@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 17:58:26 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/07 19:22:32 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strchr(const char *s, int c);
-void	*memset(void *s, int c, size_t n);
-void	bzero(void *s, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
+int isalnum(int c);
 
 #endif
