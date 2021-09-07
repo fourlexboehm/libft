@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:35:56 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 18:00:27 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/06 17:00:47 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/07 19:44:31 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
+#include "libft.h"
 
-int	ft_isalpha(char c)
+void	ft_bzero(void *s, size_t n)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	ft_memset(s, 0, n);
 }

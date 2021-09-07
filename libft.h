@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/07 19:22:32 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/07 20:13:25 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <string.h>
+# include <unistd.h>
 # include <stddef.h>
 
-int		ft_isspace(char c);
-int		ft_isalpha(char c);
+int		ft_isspace(int c);
+int		ft_isalpha(int c);
+int		isalnum(int c);
 int		ft_atoi(const char *str);
 int		*ft_strcat(char *dest, const char *src);
 int		ft_strcmp(char *s1, char *s2);
@@ -33,6 +35,5 @@ char	*ft_strchr(const char *s, int c);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-int isalnum(int c);
 
 #endif

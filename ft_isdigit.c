@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:35 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 18:00:13 by aboehm           ###   ########.fr       */
+/*   Created: 2021/08/28 20:35:56 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/07 19:45:25 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
-		i++;
-	return (s1[i] - s2[i]);
-}
-/*
-#include <stdio.h>
-int	main(void)
+int	ft_isdigit(int c)
 {
-	char	s1[] = "15";
-	char	s2[] = "19";
-	printf("%d", ft_strcmp(s1, s2)); 
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
-*/

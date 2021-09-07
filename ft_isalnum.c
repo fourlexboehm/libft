@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:56 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 17:59:54 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/07 19:44:50 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
+#include "libft.h"
 
-int	ft_isspace(char c)
+int	ft_isalpha(int c)
 {
-	if (c == '\t')
-		return (1);
-	if (c == '\n')
-		return (1);
-	if (c == '\v')
-		return (1);
-	if (c == '\f')
-		return (1);
-	if (c == '\r')
-		return (1);
-	if (c == ' ')
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
 		return (1);
 	else
 		return (0);

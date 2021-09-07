@@ -6,10 +6,11 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 15:19:05 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 17:59:41 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/07 20:20:17 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -28,7 +29,6 @@ char	*ft_strchr(const char *s, int c)
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include "../include/libft.h"
 
 static void		ft_print_result(char const *s)
 {

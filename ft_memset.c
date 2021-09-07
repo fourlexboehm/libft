@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 17:00:47 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/07 16:19:25 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/06 17:38:54 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/07 19:45:40 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	ft_memset(s, 0, n);
+	char	*pointer;
+
+	pointer = (char *) s;
+	while (n-- > 0)
+		*pointer++ = (char)c;
+	return (s);
 }

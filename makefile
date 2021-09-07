@@ -2,8 +2,8 @@ CC		= gcc
 CFLAGS	= -Werror -Wall -Wextra -c -g
 
 NAME  = libft.a
-SOURCES = $(shell echo src/*.c)
-HEADERS = $(shell echo include/*.h)
+SOURCES = $(shell echo *.c)
+HEADERS = libft.h
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)

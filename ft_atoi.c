@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:43 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 18:03:54 by aboehm           ###   ########.fr       */
+/*   Created: 2021/08/28 20:35:49 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/07 19:48:11 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
 	int	i;
+	int	n;
+	int	result;
 
 	i = 0;
-	while (src[i] != '\0')
+	n = 1;
+	result = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
 	{
-		dest[i] = src[i];
+		n = -1;
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (result * n);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char src[59] = "Hello, world!\0";
-	char dest[59];
-	ft_strcpy(dest, src);
-	printf("%s\n", dest);
-}
-*/

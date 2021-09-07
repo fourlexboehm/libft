@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:47 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/06 17:59:04 by aboehm           ###   ########.fr       */
+/*   Created: 2021/08/28 20:36:43 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/07 19:46:07 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/libft.h"
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (src[i] != '\0')
 	{
+		dest[i] = src[i];
 		i++;
 	}
-	return (i);
+	dest[i] = '\0';
+	return (dest);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
-	printf("%d", ft_strlen("foobar"));
+	char src[59] = "Hello, world!\0";
+	char dest[59];
+	ft_strcpy(dest, src);
+	printf("%s\n", dest);
 }
 */
