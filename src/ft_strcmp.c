@@ -6,9 +6,10 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:36:35 by aboehm            #+#    #+#             */
-/*   Updated: 2021/08/28 20:36:36 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/06 18:00:13 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../include/libft.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

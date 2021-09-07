@@ -6,9 +6,10 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:36:43 by aboehm            #+#    #+#             */
-/*   Updated: 2021/08/28 20:36:44 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/06 18:03:54 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../include/libft.h"
 
 char	*ft_strcpy(char *dest, char *src)
 {

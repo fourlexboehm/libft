@@ -6,14 +6,15 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:56 by aboehm            #+#    #+#             */
-/*   Updated: 2021/08/30 13:42:47 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/06 18:00:27 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../include/libft.h"
 
 int	ft_isalpha(char c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	else
-			return (0);
+		return (0);
 }

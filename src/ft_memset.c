@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:26 by aboehm            #+#    #+#             */
-/*   Updated: 2021/08/28 20:36:27 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/06 17:38:54 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/06 18:01:02 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../include/libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+void	*memset(void *s, int c, size_t n)
 {
-	int	desti;
-	int	srci;
+	char	*pointer;
 
-	desti = 0;
-	srci = 0;
-	while (dest[desti] != '\0')
-		desti++;
-	while (src[srci] != '\0')
-	{
-		dest[desti] = src[srci];
-		srci++;
-		desti++;
-	}
-	dest[desti] = '\0';
-	return (dest);
+	pointer = (char *) s;
+	while (n-- > 0)
+		*pointer++ = (char)c;
+	return (s);
 }
