@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 11:19:13 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/08 13:26:34 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/08 13:18:59 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	void	*clone_dest;
-
-	if (!dest && !src)
+	if (!dst && !src)
 		return (NULL);
-	clone_dest = dest;
-	while (n--)
-		*(unsigned char *)dest++ = *(unsigned char *)src++;
-	return (clone_dest);
+	if ((size_t)(dst - src) >= len)
+		return (ft_memcpy(dst, src, len));
+	while (len--)
+		*((unsigned char *)dst + len) = *((unsigned char *)src + len);
+	return (dst);
 }

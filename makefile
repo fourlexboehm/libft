@@ -11,15 +11,15 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
-$(OBJECT): $(SRC)
+$(dothemaking):
 	$(CC) $(FLAGS) $(CFLAGS) -o $(NAME) $(OBJECTS) $(HEADERS)
 
 clean:
-	rm -rf src/*.o
+	rm -rf *.o
 
 fclean: clean
-		@rm -rf $(NAME)
-		@echo "[INFO] Library [$(NAME) removed!"
+	rm -rf $(NAME)
+	echo "[INFO] Library [$(NAME) removed!"
 
 
 #Re-make everything.

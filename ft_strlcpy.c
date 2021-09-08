@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 11:19:13 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/08 13:26:34 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/08 17:16:48 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/08 17:17:26 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	strlcpy(char *dst, const char *src, size_t size)
 {
-	void	*clone_dest;
-
-	if (!dest && !src)
-		return (NULL);
-	clone_dest = dest;
-	while (n--)
-		*(unsigned char *)dest++ = *(unsigned char *)src++;
-	return (clone_dest);
+	size_t i;
+	if (!size)
+		return (0);
+	while ( i++ < size && src && dst)
+		*dst++ = *src++;
+	dst = '\0';
+	return (i);
 }
