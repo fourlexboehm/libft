@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:55 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/11 17:33:18 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/11 18:09:08 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
-{
-	int unsigned	i;
+#include "libft.h"
 
-	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
-	{
-		if (s1[i] < s2[i])
-		{
-			return (-1);
-		}
-		else if (s1[i] > s2[i])
-		{
-			return (1);
-		}
-		i++;
-	}
-	return (0);
-}
-/*
-#include <stdio.h>
-int	main(void)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	s1[] = "1551";
-	char	s2[] = "15518943";
-	printf("%d", ft_strncmp(s1, s2, 4)); 
+	size_t	needle_len;
+
+	needle_len = ft_strlen((char *)needle);
+	if (*needle)
+	{
+		if (len == 0)
+			return (NULL);
+		while (len-- && ft_strncmp(haystack, needle, needle_len) != 0)
+		{
+			if (len < needle_len)
+				return (NULL);
+			if (*haystack++ == '\0')
+				return (NULL);
+		}
+	}
+	return ((char *)haystack);
 }
-*/

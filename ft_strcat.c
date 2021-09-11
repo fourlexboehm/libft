@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:55 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/08/28 20:36:43 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/07 19:46:07 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
+#include "libft.h"
+
+char	*ft_strcpy(char *dest, char *src)
 {
-	int unsigned	i;
+	int	i;
 
 	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
+	while (src[i] != '\0')
 	{
-		if (s1[i] < s2[i])
-		{
-			return (-1);
-		}
-		else if (s1[i] > s2[i])
-		{
-			return (1);
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
-	char	s1[] = "1551";
-	char	s2[] = "15518943";
-	printf("%d", ft_strncmp(s1, s2, 4)); 
+	char src[59] = "Hello, world!\0";
+	char dest[59];
+	ft_strcpy(dest, src);
+	printf("%s\n", dest);
 }
 */

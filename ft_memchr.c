@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:55 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/11 00:22:55 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/11 00:24:09 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
-{
-	int unsigned	i;
-
-	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
-	{
-		if (s1[i] < s2[i])
-		{
-			return (-1);
-		}
-		else if (s1[i] > s2[i])
-		{
-			return (1);
-		}
-		i++;
-	}
-	return (0);
-}
-/*
+#include <stdlib.h>
 #include <stdio.h>
-int	main(void)
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	s1[] = "1551";
-	char	s2[] = "15518943";
-	printf("%d", ft_strncmp(s1, s2, 4)); 
+	while (n-- && *(char *)s++)
+	{
+		if (*(char *)s == c)
+			return ((void *)s);
+	}
+	return (NULL);
+}
+
+/*
+int main ()
+{
+	char *lex = (char *)memchr("array", 'r', 10);
+	printf("%s", lex);
 }
 */

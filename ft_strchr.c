@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 15:19:05 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/07 20:20:17 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/11 15:06:34 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ char	*ft_strchr(const char *s, int c)
 	char	*p;
 
 	p = (char *)s;
-	while (*s != c)
+	while (*p != c)
 	{
 		if (!*p)
-			return (NULL);
+			return (0);
 		p++;
 	}
 	return (p);

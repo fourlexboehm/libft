@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:55 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/11 18:01:38 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/11 18:07:51 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
+#include "libft.h"
+
+int	ft_memcmp(const void *sp1, const void *sp2, size_t n)
 {
 	int unsigned	i;
+	char			*s1;
+	char			*s2;
 
+	s1 = (char *)sp1;
+	s2 = (char *)sp2;
 	i = 0;
 	while ((s1[i] || s2[i]) && (i < n))
 	{
@@ -29,12 +35,3 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	s1[] = "1551";
-	char	s2[] = "15518943";
-	printf("%d", ft_strncmp(s1, s2, 4)); 
-}
-*/
