@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 18:01:38 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/13 18:30:56 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/13 15:12:01 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/13 18:25:46 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *sp1, const void *sp2, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	t_list	*temp;
 
-	if (n != 0)
+	temp = NULL;
+	if (lst != NULL)
 	{
-		p1 = sp1;
-		p2 = sp2;
-		while (1)
+		while (*lst != NULL)
 		{
-			if (*p1++ != *p2++)
-				return (*--p1 - *--p2);
+			temp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = temp;
 		}
-		while (--n != 0)
-			;
 	}
-	return (0);
 }

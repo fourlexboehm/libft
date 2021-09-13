@@ -14,6 +14,10 @@ $(NAME): $(OBJECTS)
 $(dothemaking):
 	$(CC) $(FLAGS) $(CFLAGS) -o $(NAME) $(OBJECTS) $(HEADERS)
 
+bonus:  $(OBJS) $(OBJS_B)
+		ar -rcs $(NAME) $(OBJS) $(OBJS_B)
+
+
 clean:
 	rm -rf *.o
 

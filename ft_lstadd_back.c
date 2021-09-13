@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 18:01:38 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/13 18:30:56 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/13 15:12:01 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/13 18:28:12 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *sp1, const void *sp2, size_t n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	t_list	*node;
 
-	if (n != 0)
+	if (*lst == NULL)
 	{
-		p1 = sp1;
-		p2 = sp2;
-		while (1)
-		{
-			if (*p1++ != *p2++)
-				return (*--p1 - *--p2);
-		}
-		while (--n != 0)
-			;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	node = *lst;
+	while (node->next != NULL)
+	{
+		node = node->next;
+	}
+	node->next = &*new;
 }
