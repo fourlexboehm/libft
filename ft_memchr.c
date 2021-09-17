@@ -6,27 +6,22 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 00:22:55 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/11 00:24:09 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/17 10:14:56 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	while (n-- && *(char *)s++)
+	size_t	i;
+
+	i = 0;
+	while (i < n)
 	{
-		if (*(char *)s == c)
-			return ((void *)s);
+		if (((unsigned char *)str)[i] == (unsigned char)c)
+			return (((unsigned char *)str) + i);
+		i++;
 	}
 	return (NULL);
 }
-
-/*
-int main ()
-{
-	char *lex = (char *)memchr("array", 'r', 10);
-	printf("%s", lex);
-}
-*/

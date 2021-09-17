@@ -6,13 +6,25 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:36:55 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:11 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/17 11:41:39 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
+#include "libft.h"
+/*
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int unsigned	i;
+	while (*s1 && *s1++ == *s2++ && n-- > 0)
+		;
+	if (n == 0)
+		return (0);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+*/
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t i;
 
 	i = 0;
 	while ((s1[i] || s2[i]) && (i < n))
@@ -29,12 +41,3 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	s1[] = "1551";
-	char	s2[] = "15518943";
-	printf("%d", ft_strncmp(s1, s2, 4)); 
-}
-*/

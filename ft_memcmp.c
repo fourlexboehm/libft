@@ -6,28 +6,28 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 18:01:38 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/13 18:30:56 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/17 10:21:19 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *sp1, const void *sp2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	size_t			i;
+	unsigned char	*a;
+	unsigned char	*b;
 
-	if (n != 0)
+	i = 0;
+	a = (unsigned char *)s1;
+	b = (unsigned char *)s2;
+	if (s1 == s2 || n == 0)
+		return (0);
+	while (*a == *b && i < n - 1)
 	{
-		p1 = sp1;
-		p2 = sp2;
-		while (1)
-		{
-			if (*p1++ != *p2++)
-				return (*--p1 - *--p2);
-		}
-		while (--n != 0)
-			;
+		a++;
+		b++;
+		i++;
 	}
-	return (0);
+	return (*a - *b);
 }

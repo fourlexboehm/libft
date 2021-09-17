@@ -6,20 +6,21 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 11:19:13 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/08 13:26:34 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/17 10:17:36 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	void	*clone_dest;
+	size_t	i;
 
-	if (!dest && !src)
-		return (NULL);
-	clone_dest = dest;
-	while (n--)
-		*(unsigned char *)dest++ = *(unsigned char *)src++;
-	return (clone_dest);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/13 18:29:27 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/17 11:50:02 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strcpy(char *dest, char *src);
 int		ft_strlen(char *str);
 int		ft_strnlen(char *str, size_t maxlen);
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
-int		ft_strncmp(const char *s1, const char *s2, unsigned int n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strchr(const char *s, int c);
@@ -65,5 +65,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*ft_itoa(int n);
 
 #endif
