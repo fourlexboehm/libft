@@ -29,3 +29,5 @@ fclean: clean
 #Re-make everything.
 re:		fclean all
 
+install:        $(NAME)
+	@install -m 0755 libft.a  /usr/lib
