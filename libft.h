@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 15:47:09 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/20 17:07:12 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
-int		*ft_strcat(char *dest, const char *src);
 int		ft_strcmp(char *s1, char *s2);
-char	*ft_strcpy(char *dest, char *src);
 int		ft_strlen(char *str);
 size_t	ft_strnlen(const char *str, size_t size);
 char	*ft_strncat(char *dest, const char *src, unsigned int nb);
