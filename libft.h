@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 15:14:37 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:47:09 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct s_list
 {
-void *content;
-struct s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isspace(int c);
 int		ft_isalpha(int c);
@@ -38,7 +38,7 @@ int		*ft_strcat(char *dest, const char *src);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strcpy(char *dest, char *src);
 int		ft_strlen(char *str);
-size_t  ft_strnlen(const char *str, size_t size);
+size_t	ft_strnlen(const char *str, size_t size);
 char	*ft_strncat(char *dest, const char *src, unsigned int nb);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strncpy(char *dest, const char *src, unsigned int n);

@@ -6,31 +6,37 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 14:25:36 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 15:25:46 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:56:00 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 {
-	t_list	*head;
-	t_list	*node;
+	t_list	*first;
+	t_list	*new;
 
-	if (!(lst && f && del))
+	if (!f || !del)
 		return (NULL);
-	head = NULL;
+	first = NULL;
 	while (lst)
 	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
-			return (NULL);
+		new = ft_lstnew((*f)(lst->content));
+		if (!new)
 		{
-			ft_lstclear(&head, del);
+			while (first)
+			{
+				new = first->next;
+				(*del)(first->content);
+				free(first);
+				first = new;
+			}
+			lst = NULL;
 			return (NULL);
 		}
+		ft_lstadd_back(&first, new);
 		lst = lst->next;
-		ft_lstadd_back(&head, node);
 	}
-	return (head);
+	return (first);
 }
