@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:59 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/18 20:55:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/18 22:16:02 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/19 14:32:24 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, const char *src, unsigned int n)
+#include "libft.h"
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while (s[i])
 	{
-		dest[i] = src[i];
+		write(fd, &s[i], 1);
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-    char	src[] = "Hello, string Strings are great!";
-	char	dest[15];
-
-    ft_strncpy(dest, src, 7);
-	printf("The string is: %s\n", dest);
-}
-*/

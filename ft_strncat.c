@@ -6,11 +6,11 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:36:51 by aboehm            #+#    #+#             */
-/*   Updated: 2021/08/28 20:36:52 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/18 20:54:59 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strncat(char *dest, const char *src, unsigned int nb)
 {
 	unsigned int	desti;
 	unsigned int	srci;

@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 11:52:05 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/17 19:51:14 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/19 14:40:02 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	nbr_len(int nbr)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (nbr)
-		{
-			nbr /= 10;
-		}
+	{
+		nbr /= 10;
+	}
 	return (i);
 }
 
@@ -43,11 +43,11 @@ char	*ft_strrev(char *str)
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *str;
-	int i;
-	int sign;
+	char	*str;
+	int		i;
+	int		sign;
 
 	str = (char *)malloc(nbr_len(n));
 	if (!str)
@@ -58,11 +58,13 @@ char *ft_itoa(int n)
 	if (n < 0)
 		n = -n;
 	i = 0;
-	do
-		{
-			str[i++] = n % 10 + '0';
-		}
-	while ((n /= 10) > 0);
+	while (1)
+	{
+		str[i++] = n % 10 + '0';
+	}
+	n /= 10;
+	while (n > 0)
+		;
 	if (sign < 0)
 		str[i++] = '-';
 	str[i] = '\0';

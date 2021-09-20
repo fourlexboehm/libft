@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:59 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/18 20:55:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/19 11:41:05 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/19 14:36:24 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, const char *src, unsigned int n)
+#include "libft.h"
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char			*result;
 	unsigned int	i;
 
+	result = (char *) malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+	if (!s)
+		return (NULL);
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while (s[i])
 	{
-		dest[i] = src[i];
+		result[i] = f(i, s[i]);
 		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	}	
+	result[i] = '\0';
+	return (result);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-    char	src[] = "Hello, string Strings are great!";
-	char	dest[15];
-
-    ft_strncpy(dest, src, 7);
-	printf("The string is: %s\n", dest);
-}
-*/

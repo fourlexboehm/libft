@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 20:36:59 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/18 20:55:11 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/18 20:40:45 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/19 14:35:49 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, const char *src, unsigned int n)
-{
-	unsigned int	i;
+#include "libft.h"
 
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
-}
-/*
-#include <stdio.h>
-int	main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    char	src[] = "Hello, string Strings are great!";
-	char	dest[15];
+	char	*result;
+	size_t	s1len;
+	size_t	s2len;
 
-    ft_strncpy(dest, src, 7);
-	printf("The string is: %s\n", dest);
+	s1len = ft_strlen((char *)s1);
+	s2len = ft_strlen((char *)s2);
+	result = (char *)malloc((s1len + s2len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	ft_strlcpy(result, s1, s1len + 1);
+	ft_strlcat(result, s2, s1len + s2len + 1);
+	return (result);
 }
-*/
