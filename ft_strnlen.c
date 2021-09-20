@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 14:25:36 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 15:25:46 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/20 15:11:48 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/20 15:34:15 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+size_t	ft_strnlen(const char *str, size_t size)
 {
-	t_list	*head;
-	t_list	*node;
+	size_t	i;
 
-	if (!(lst && f && del))
-		return (NULL);
-	head = NULL;
-	while (lst)
+	i = 0;
+	while (i < size)
 	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
-			return (NULL);
-		{
-			ft_lstclear(&head, del);
-			return (NULL);
-		}
-		lst = lst->next;
-		ft_lstadd_back(&head, node);
+		if (str[i] == '\0')
+			return (i);
+		i++;
 	}
-	return (head);
+	return (size);
 }

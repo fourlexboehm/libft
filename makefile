@@ -6,8 +6,10 @@ SOURCES = ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
+		ft_strndup.c \
 		ft_isprint.c \
 		ft_strlen.c \
+		ft_strnlen.c \
 		ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
@@ -61,7 +63,7 @@ $(dothemaking):
 	$(CC) $(FLAGS) $(CFLAGS) -o $(NAME) $(OBJECTS) $(HEADERS)
 
 bonus:  $(OBJECTS) $(OBJECTS_B)
-		ar rcs $(NAME) $(OBJS) $(OBJS_B)
+		ar rcs $(NAME) $(OBJECTS) $(OBJECTS_B)
 
 
 clean:

@@ -6,67 +6,53 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 11:52:05 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/19 14:40:02 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/20 14:42:12 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nbr_len(int nbr)
+size_t	ft_nbrlen(int nbr, int base)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
+	len = 0;
+	if (nbr == 0)
+		return (1);
+	if (nbr < 0 && base == 10)
+		len += 1;
 	while (nbr)
 	{
-		nbr /= 10;
+		nbr /= base;
+		len += 1;
 	}
-	return (i);
-}
-
-char	*ft_strrev(char *str)
-{
-	int		i;
-	int		length;
-	char	buff;
-
-	i = 0;
-	length = ft_strlen(str);
-	while (length - 1 > i)
-	{
-		buff = str[i];
-		str[i] = str[length - 1];
-		str[length - 1] = buff;
-		length--;
-		i++;
-	}
-	return (str);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
+	size_t	i;
+	size_t	n_size;
 	char	*str;
-	int		i;
-	int		sign;
 
-	str = (char *)malloc(nbr_len(n));
+	i = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	n_size = ft_nbrlen(n, 10);
+	str = (char *)malloc(sizeof(char) * (n_size + 1));
 	if (!str)
 		return (NULL);
-	if (n == -2147483648)
-		return ("-2147483648\0");
-	sign = n;
+	str[n_size] = 0;
 	if (n < 0)
-		n = -n;
-	i = 0;
-	while (1)
 	{
-		str[i++] = n % 10 + '0';
+		str[0] = '-';
+		n *= -1;
+		i += 1;
 	}
-	n /= 10;
-	while (n > 0)
-		;
-	if (sign < 0)
-		str[i++] = '-';
-	str[i] = '\0';
-	return (ft_strrev(str));
+	while (i < n_size--)
+	{
+		str[n_size] = (n % 10) + '0';
+		n /= 10;
+	}
+	return (str);
 }

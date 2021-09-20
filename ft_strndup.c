@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 14:25:36 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 15:25:46 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/20 15:04:54 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/20 15:08:40 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*ft_strndup(const char *s1, size_t n)
 {
-	t_list	*head;
-	t_list	*node;
+	const size_t	len = ft_strnlen((char *)s1, n);
+	char			*dst;
 
-	if (!(lst && f && del))
+	dst = malloc((len + 1) * sizeof(char));
+	if (!dst)
 		return (NULL);
-	head = NULL;
-	while (lst)
-	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
-			return (NULL);
-		{
-			ft_lstclear(&head, del);
-			return (NULL);
-		}
-		lst = lst->next;
-		ft_lstadd_back(&head, node);
-	}
-	return (head);
+	ft_strlcpy(dst, s1, len + 1);
+	return (dst);
 }
