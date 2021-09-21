@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 17:07:12 by aboehm           ###   ########.fr       */
+/*   Updated: 2021/09/20 19:04:25 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <stddef.h>
-# include <string.h>
 # include <unistd.h>
-# include <stddef.h>
+# include <string.h>
 
 typedef struct s_list
 {

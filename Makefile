@@ -65,14 +65,12 @@ $(dothemaking):
 bonus:  $(OBJECTS) $(OBJECTS_B)
 		ar rcs $(NAME) $(OBJECTS) $(OBJECTS_B)
 
-
 clean:
 	rm -rf *.o
 
 fclean: clean
 	rm -rf $(NAME)
 	echo "[INFO] Library [$(NAME) removed!"
-
 
 #Re-make everything.
 re:		fclean all
