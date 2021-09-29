@@ -5,69 +5,111 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 21:09:49 by aboehm            #+#    #+#             */
-/*   Updated: 2021/09/20 14:20:04 by aboehm           ###   ########.fr       */
+/*   Created: 2021/09/24 21:22:09 by aboehm            #+#    #+#             */
+/*   Updated: 2021/09/29 18:46:15 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wordlen(const char *s, char c)
+static void	ft_free2d(char *strs)
 {
-	unsigned int	i;
-	size_t			len;
+	int	i;
 
 	i = 0;
-	len = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i] != c && s[i++])
-		len++;
-	return (len);
-}
-
-size_t	ft_wordcount(const char *s, char c)
-{
-	unsigned int	i;
-	size_t			w;
-
-	i = 0;
-	w = 0;
-	while (s[i])
+	while (strs[i] != '\0')
 	{
-		if (s[i] != c)
-			w++;
-		while (s[i] != c && s[i + 1])
-			i++;
+		free(strs);
 		i++;
 	}
-	return (w);
+	free(strs);
 }
 
-char	**ft_split(char const *s, char c)
+static int	ft_wordcount(char *str, char c)
 {
-	char	**array;
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	int	i;
+	int	word;
 
-	array = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
-	if (!s || !array)
+	i = 0;
+	word = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != c)
+		{
+			word++;
+			while (str[i] != c && str[i] != '\0')
+				i++;
+			if (str[i] == '\0')
+				return (word);
+		}
+		i++;
+	}
+	return (word);
+}
+
+static void	ft_cpy(char *word, char *str, char c, int j)
+{
+	int	i;
+
+	i = 0;
+	while (str[j] != '\0' && str[j] == c)
+		j++;
+	while (str[j + i] != c && str[j + i] != '\0')
+	{
+		word[i] = str[j + i];
+		i++;
+	}
+	word[i] = '\0';
+}
+
+static char	*ft_stralloc(char *str, char c, int *k)
+{
+	char	*word;
+	int		j;
+
+	j = *k;
+	word = NULL;
+	while (str[*k] != '\0')
+	{
+		if (str[*k] != c)
+		{
+			while (str[*k] != '\0' && str[*k] != c)
+				*k += 1;
+			word = (char *)malloc(sizeof(char) * (*k + 1));
+			if (word == NULL)
+				return (NULL);
+			break ;
+		}
+		*k += 1;
+	}
+	ft_cpy(word, str, c, j);
+	return (word);
+}
+
+char	**ft_split(char const *str, char c)
+{
+	char	**strs;
+	int		i;
+	int		j;
+	int		pos;
+
+	if (str == NULL)
 		return (NULL);
 	i = 0;
-	k = 0;
-	while (i < ft_wordcount(s, c))
+	pos = 0;
+	j = ft_wordcount((char *)str, c);
+	strs = (char **)malloc(sizeof(char *) * (j + 1));
+	if (strs == NULL)
+		return (NULL);
+	strs[j] = NULL;
+	while (i < j)
 	{
-		array[i] = (char *)malloc(sizeof(char) * ft_wordlen(&s[k], c) + 1);
-		if (!array[i])
-			return (NULL);
-		j = 0;
-		while (s[k] == c)
-			k++;
-		while (s[k] != c && s[k])
-			array[i][j++] = s[k++];
-		array[i][j] = '\0';
+		strs[i] = ft_stralloc(((char *)str), c, &pos);
+		if (strs[i] == NULL)
+		{
+			ft_free2d(strs[i]);
+		}
 		i++;
 	}
-	return (array);
+	return (strs);
 }
