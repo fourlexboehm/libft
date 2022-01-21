@@ -2,7 +2,10 @@ CC		= gcc
 CFLAGS	= -Werror -Wall -Wextra -c -g
 
 NAME  = libft.a
-SOURCES = ft_isalpha.c \
+SOURCES = ft_printf.c \
+		printf_utils.c \
+		hex.c \
+		ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -50,7 +53,7 @@ BONUS 	= ft_lstnew.c \
 		ft_lstmap.c \
 		ft_lstiter.c
 
-HEADERS = libft.h
+HEADERS = ../includes/libft.h
 OBJECTS = $(SOURCES:.c=.o)
 OBJECTS_B = $(BONUS:.c=.o)
 
