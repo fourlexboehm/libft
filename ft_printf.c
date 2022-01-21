@@ -6,11 +6,11 @@
 /*   By: aboehm <aboehm@42adel.org.au>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 21:42:11 by aboehm            #+#    #+#             */
-/*   Updated: 2022/01/21 20:44:32 by aboehm           ###   ########.fr       */
+/*   Updated: 2022/01/21 20:58:20 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	write_char(char c)
 {

@@ -6,7 +6,7 @@
 /*   By: aboehm <aboehm@42adel.org>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:35:40 by aboehm            #+#    #+#             */
-/*   Updated: 2021/12/01 14:10:44 by aboehm           ###   ########.fr       */
+/*   Updated: 2022/01/21 20:57:23 by aboehm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -23,6 +24,14 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+int		ft_printf(const char *format, ...);
+int		write_int(int i);
+void	write_uint(unsigned int n, int *count);
+int		write_char(char c);
+int		write_str(char *str);
+int		num_len(int n);
+void	put_hex(unsigned int n, int *count, char c);
+int		put_pointer(void *pointer, int *count);
 int		ft_isspace(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
